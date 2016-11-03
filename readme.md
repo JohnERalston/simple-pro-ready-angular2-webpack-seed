@@ -38,4 +38,4 @@ Such as Spring, Ninjaframework, ASP.NET MVC or WEB API etc.
 
 That is pretty much it.
 
-Feel perfectly free to post an questions here: [Outbottle.com](angular-2-production-ready-webpack-seed)
+Feel perfectly free to post an questions here: [Outbottle.com](http://outbottle.com/angular-2-production-ready-webpack-seed-starter/)
