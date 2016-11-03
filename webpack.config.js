@@ -87,7 +87,7 @@ module.exports = {
         new ExtractTextPlugin('[name].css'),
         new HtmlWebpackPlugin({
             cachebust: new Date().getTime(),
-            template: './index.html.template',
+            template: './index.html.template', //this should end in anything other than .html otherwise use [Another template option](http://https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md)
             filename: './index.html',
             hash: true,
             inject: false
