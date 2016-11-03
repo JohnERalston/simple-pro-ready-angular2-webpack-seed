@@ -34,6 +34,7 @@ Such as Spring, Ninjaframework, ASP.NET MVC or WEB API etc.
      inject: false
 })
 3. Update `index.html.template` `script` and `link` tags to point to the `dist` directory
+```
 
 That is pretty much it.
 
