@@ -35,6 +35,6 @@ Such as Spring, Ninjaframework, ASP.NET MVC or WEB API etc.
 })
 3. Update `index.html.template` `script` and `link` tags to point to the `dist` directory
 
-That's pretty much it.
+That''s pretty much it.
 
 Feel perfectly free to post an questions here: [Outbottle.com](angular-2-production-ready-webpack-seed)
