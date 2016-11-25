@@ -1,6 +1,8 @@
 # simple-pro-ready-angular2-webpack-seed
 A simple yet production ready angular 2 webpack seed.
 This can be used as a standalone application or within another project such as ASP.NET MVC or Web API, Java Spring etc.
+Complete with karma, jasmine and istanbul
+Questions welcome at [Outbottle.com](http://outbottle.com/angular-2-production-ready-webpack-seed-starter/)
 
 ## Running
 1. `npm run build` - builds the application into the dist directory the contents of which are stand-alone and fully functional.
@@ -9,17 +11,19 @@ You can run it by navigating to the dist directory in a command terminal and ser
 3. `npm live` - This fires up the webpack-dev-server and serves up the application on http://localhost:8081. It rebuilds and reloads the browser automatically when code changes are detected.
 4. `npm test` - Runs unit tests once, result displayed in terminal
 5. `npm test-w` - Runs unit tests as code changes
+6. `npm run coverage` - launches chrome showing unit test code coverage (note that this is only available after all tests pass)
 
 ## About
 The resultant compiled code is minimised and complete with source maps for debugging purposes.
 There is just one build which is suitable for dev, pro and any other environment.
+If you want to speed things up during development however feel free to simple use this command from the console `webpack --watch` which is a quicker build but not quite pro ready.
 The generated index.html file cache busts the generated css and js files by adding a hash query string parameter.
-The code is fully debuggable in chrome or firebug 
+The code is fully debuggable in chrome or firebug via the generated maps
 
 ## Standalone application
 When built, the dist folder contains the compiled application. Launch in any application server to see it.
 *E.g. in a console `cd` into the `dist` folder and use `http-server` (npm module) to launch the application.*
-Obviously, during development use `npm run build-w` or `npm live` for convenience.
+Obviously, during development use `npm run build-w` or `npm run live` for convenience.
 
 ## Integrated into another application
 Such as Spring, Ninjaframework, ASP.NET MVC or WEB API etc.
@@ -29,12 +33,13 @@ Such as Spring, Ninjaframework, ASP.NET MVC or WEB API etc.
  new HtmlWebpackPlugin({
      cachebust: new Date().getTime(),
      template: './index.html.template', //this should end in anything other than .html otherwise use [Another template option](http://https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md)
-     filename: './Views/Shared/_Layout.cshtml', //MVC //In other words, make this path to anywhere relative to root directory
+     filename: './Views/Shared/_Layout.cshtml', //MVC //In other words, make this path anywhere relative to root directory
      hash: true,
      inject: false
 })
-3. Update `index.html.template` `script` and `link` tags to point to the `dist` directory
 ```
+3. Update `index.html.template` `script` and `link` tags to point to the `dist` directory
+
 
 That is pretty much it.
 

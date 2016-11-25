@@ -1,8 +1,12 @@
 // Karma configuration
-// Generated on Thu Nov 03 2016 10:40:40 GMT+0000 (GMT Standard Time)
+
+var webpackConfig = require('./webpack.test');
+
+var ENV = process.env.npm_lifecycle_event;
+var isTestWatch = ENV === 'test-w';
 
 module.exports = function(config) {
-  config.set({
+  var _config = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -15,7 +19,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/**/*spec.ts'
+        { pattern: './karma-test-shim.js', watched: false }
     ],
 
 
@@ -24,16 +28,25 @@ module.exports = function(config) {
     ],
 
 
+    webpack: webpackConfig,
+    webpackMiddleware: {
+        stats: 'errors-only'
+    },
+    
+    webpackServer: {
+        noInfo: true
+    },
+
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        './karma-test-shim.js': ['webpack', 'sourcemap']
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha'],
 
 
     // web server port
@@ -65,5 +78,22 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
+  };
+
+  if (!isTestWatch) {
+        
+        _config.reporters.push("coverage");
+
+        _config.coverageReporter = {
+            dir: 'coverage/',
+            reporters: [{
+                type: 'json',
+                dir: 'coverage',
+                subdir: 'json',
+                file: 'coverage-final.json'
+            }]
+        };
+    }
+
+    config.set(_config);
 }

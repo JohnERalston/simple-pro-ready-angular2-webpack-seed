@@ -6,7 +6,9 @@
     "build-w": "webpack -d -p --watch",
     "test": "karma start",
     "test-w": "karma start --no-single-run --auto-watch",
+    "posttest": "remap-istanbul -i coverage/json/coverage-final.json -o coverage/html -t html",
     "live": "webpack-dev-server --inline --progress --port 8081",
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage/html",
     "postinstall": "typings install",
     "typings": "typings"
   },
@@ -23,7 +25,7 @@
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.1",
     "moment": "^2.15.1",
-    "ng2-bootstrap": "^1.1.16",
+    "ng2-bootstrap": "^1.1.5",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.25"
@@ -32,6 +34,7 @@
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^2.2.4",
     "clean-webpack-plugin": "^0.1.13",
+    "codelyzer": "^1.0.0-beta.2",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
@@ -50,19 +53,19 @@
     "karma-remap-istanbul": "0.2.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.8.0",
-    "ts-helpers": "^1.1.2",
+    "node-notifier": "^4.6.1",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.7",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
+    "ts-helpers": "^1.1.2",
+    "tslint": "^3.15.1",
+    "tslint-loader": "^2.1.5",
     "typescript": "^2.0.2",
     "typings": "^1.3.2",
     "webpack": "^1.13.0",
-    "webpack-merge": "^0.14.0",
-    "codelyzer": "^1.0.0-beta.2",
-    "tslint": "^3.15.1",
-    "tslint-loader": "^2.1.5"
+    "webpack-merge": "^0.14.0"
   },
   "compileOnSave": false
 }

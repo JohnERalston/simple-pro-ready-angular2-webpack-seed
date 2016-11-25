@@ -1,22 +1,9 @@
 var webpack = require('webpack');
+var helpers = require('./helpers');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-
-var helpers = (function(){
-    return {
-        root: root
-    }
-
-    function root(args) {
-        var path = require('path');
-        var _root = path.resolve(__dirname, '.');
-        args = Array.prototype.slice.call(arguments, 0);
-        var res = path.join.apply(path, [_root].concat(args));
-        return res;
-    }
-})();
-
+var HooksPlugin = require("./hooks.plugin");
 
 module.exports = {
     devServer: {
@@ -91,6 +78,7 @@ module.exports = {
             filename: './index.html',
             hash: true,
             inject: false
-        })
+        }),
+        new HooksPlugin({})
     ]
 };

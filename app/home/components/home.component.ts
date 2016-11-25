@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+    getTestString(): string {
+        return "Test me please";
+    }
+
 }
