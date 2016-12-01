@@ -1,0 +1,8 @@
+
+h2.external {
+    color: #999;
+}
+h2.external::after {
+    content: ' from /ext_resources/site.css';
+    color: darkcyan;
+}

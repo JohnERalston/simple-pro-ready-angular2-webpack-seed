@@ -10,11 +10,14 @@
     <script src="polyfills.js?<%= htmlWebpackPlugin.options.cachebust %>"></script>
     <link href="vendor.css?<%= htmlWebpackPlugin.options.cachebust %>" rel="stylesheet" type="text/css" />
     <link href="app.css?<%= htmlWebpackPlugin.options.cachebust %>" rel="stylesheet" type="text/css" />
+    <link href="ext_resources/site.css?<%= htmlWebpackPlugin.options.cachebust %>" rel="stylesheet" type="text/css" />
     <base href="/">
 </head>
 
 <body>
     <my-app>Loading...</my-app>
+    <script src="ext_resources/jquery.js?<%= htmlWebpackPlugin.options.cachebust %>"></script>
+    <script src="ext_resources/js.js?<%= htmlWebpackPlugin.options.cachebust %>"></script>
     <script src="vendor.js?<%= htmlWebpackPlugin.options.cachebust %>"></script>
     <script src="app.js?<%= htmlWebpackPlugin.options.cachebust %>"></script>
 </body>

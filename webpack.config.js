@@ -3,15 +3,15 @@ var helpers = require('./helpers');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HooksPlugin = require("./hooks.plugin");
 
-module.exports = {
+var ENV = process.env.npm_lifecycle_event;
+var isDevServer = ENV === 'live';
+
+var mod = {
     devServer: {
-        historyApiFallback: {
-            rewrites: [
-                { from: /\/.*/, to: '/index.html'}
-            ]
-        }
+        historyApiFallback: {}
     },
 
     entry: {
@@ -82,3 +82,14 @@ module.exports = {
         new HooksPlugin({})
     ]
 };
+
+if (!isDevServer) {
+    mod.plugins.push(
+        new CopyWebpackPlugin([{
+            from: './ext_resources',
+            to: helpers.root('dist/ext_resources')
+        }])
+    );
+}
+
+module.exports = mod;
